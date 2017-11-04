@@ -1,0 +1,75 @@
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/04/17 01:36:03
+CalcSum.asm						     Page 1 - 1
+
+
+				; AddTwo.asm - adds two 32-bit integers.
+				; Chapter 3 example
+
+				.386
+				.model flat,c
+				.stack 4096
+
+
+ 00000000			.code
+
+ 00000000			CalcSum_ proc
+
+				   ; Initialize a stack frame pointer
+
+ 00000000  55			    push ebp
+ 00000001  8B EC		    mov ebp, esp
+
+					; Load the arguement values
+ 00000003  8B 45 08		    mov eax,[ebp+8]                      ; eax=a
+ 00000006  8B 4D 0C		    mov ecx,[ebp+12]                     ; eax=b
+ 00000009  8B 55 10		    mov edx,[ebp+16]                     ; edx=c
+
+					; Calculate the sum
+ 0000000C  03 C1			add eax,ecx
+ 0000000E  03 C2		    add eax,edx
+
+				   ; Restore the caller's stack frame pointer
+ 00000010  5D				pop ebp
+ 00000011  C3				ret
+ 00000012			CalcSum_ endp
+				end
+
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/04/17 01:36:03
+CalcSum.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000012 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+CalcSum_ . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000012 Public C
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+
+	   0 Warnings
+	   0 Errors
