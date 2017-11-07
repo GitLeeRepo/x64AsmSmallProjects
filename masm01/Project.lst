@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.11.25507.1	    11/03/17 20:28:27
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/06/17 04:27:05
 AddTwo.asm						     Page 1 - 1
 
 
@@ -32,7 +32,7 @@ AddTwo.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 
  00000000			.data
 
- 00000000 48 65 6C 6C 6F	helloWorld BYTE "Hello, World!", 0dh, 0ah, 0dh, 0ah, 0
+ 00000000 48 65 6C 6C 6F	helloWorld db "Hello, World!", 0dh, 0ah, 0dh, 0ah, 0
 	   2C 20 57 6F 72
 	   6C 64 21 0D 0A
 	   0D 0A 00
@@ -51,6 +51,9 @@ AddTwo.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 
  00000000			.code
  00000000			main proc
+					; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
+					;       so these registers will be used throughtout for these purposes
+
  00000000  BA 00000000 R		mov edx, OFFSET helloWorld
  00000005  E8 00000000 E		call WriteString
  0000000A  BA 00000012 R		mov edx, OFFSET eaxStr
@@ -90,7 +93,7 @@ AddTwo.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
  0000007D  E8 00000000 E   *	    call   ExitProcess
  00000082			main endp
 				end main
-Microsoft (R) Macro Assembler Version 14.11.25507.1	    11/03/17 20:28:27
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/06/17 04:27:05
 AddTwo.asm						     Symbols 2 - 1
 
 

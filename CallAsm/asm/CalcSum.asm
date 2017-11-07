@@ -12,13 +12,13 @@ CalcSum_ proc
 
    ; Initialize a stack frame pointer
 
-    push ebp
-    mov ebp, esp
+    push ebp                             ; save the caller's base (stack frame) pointer
+    mov ebp, esp                         ; set the new base for this proc to the current top of the stack
 
-	; Load the arguement values
-    mov eax,[ebp+8]                      ; eax=a
-    mov ecx,[ebp+12]                     ; eax=b
-    mov edx,[ebp+16]                     ; edx=c
+	; Load the parameter values
+    mov eax,[ebp+8]                      ; eax=a (4-byte int)
+    mov ecx,[ebp+12]                     ; eax=b (4-byte int)
+    mov edx,[ebp+16]                     ; edx=c (4-byte int)
 
 	; Calculate the sum
 	add eax,ecx

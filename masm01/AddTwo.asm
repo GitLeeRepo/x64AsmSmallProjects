@@ -10,7 +10,7 @@ ExitProcess proto,dwExitCode:dword
 
 .data
 
-helloWorld BYTE "Hello, World!", 0dh, 0ah, 0dh, 0ah, 0
+helloWorld db "Hello, World!", 0dh, 0ah, 0dh, 0ah, 0
 eaxStr BYTE "Decimal eax value = ", 0
 ebxStr BYTE "Decimal ebx value = ", 0
 addThis DWORD 6
@@ -18,6 +18,9 @@ addThis DWORD 6
 
 .code
 main proc
+	; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
+	;       so these registers will be used throughtout for these purposes
+
 	mov edx, OFFSET helloWorld
 	call WriteString
 	mov edx, OFFSET eaxStr
