@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/06/17 04:27:05
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/08/17 05:07:59
 AddTwo.asm						     Page 1 - 1
 
 
@@ -51,49 +51,49 @@ AddTwo.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 
  00000000			.code
  00000000			main proc
-					; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
-					;       so these registers will be used throughtout for these purposes
+				    ; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
+				    ;       so these registers will be used throughtout for these purposes
 
- 00000000  BA 00000000 R		mov edx, OFFSET helloWorld
- 00000005  E8 00000000 E		call WriteString
- 0000000A  BA 00000012 R		mov edx, OFFSET eaxStr
+ 00000000  BA 00000000 R	    mov edx, OFFSET helloWorld
+ 00000005  E8 00000000 E	    call WriteString
+ 0000000A  BA 00000012 R	    mov edx, OFFSET eaxStr
 
- 0000000F  B8 00000005			mov	eax,5	
- 00000014  E8 00000000 E		call WriteString
- 00000019  E8 00000000 E		call WriteDec
- 0000001E  E8 00000000 E		call dumpRegs
+ 0000000F  B8 00000005		    mov eax,5    
+ 00000014  E8 00000000 E	    call WriteString
+ 00000019  E8 00000000 E	    call WriteDec
+ 0000001E  E8 00000000 E	    call dumpRegs
 
- 00000023  03 05 0000003C R		add	eax,[addThis]	
- 00000029  E8 00000000 E		call WriteString
- 0000002E  E8 00000000 E		call WriteDec
- 00000033  E8 00000000 E		call dumpRegs
+ 00000023  03 05 0000003C R	    add eax,[addThis]    
+ 00000029  E8 00000000 E	    call WriteString
+ 0000002E  E8 00000000 E	    call WriteDec
+ 00000033  E8 00000000 E	    call dumpRegs
 
- 00000038  BB 0000000A			mov ebx,10
- 0000003D  93				xchg eax,ebx              ; exchange so you can display ebx value in WriteDec
- 0000003E  BA 00000027 R		mov edx, OFFSET ebxStr
- 00000043  E8 00000000 E		call WriteString
- 00000048  BA 00000012 R		mov edx, OFFSET eaxStr    ; set it back since all the rest are eaxStr
- 0000004D  E8 00000000 E		call WriteDec
- 00000052  93				xchg eax,ebx              ; swap them back so eax can continue to be accumulator
- 00000053  E8 00000000 E		call dumpRegs
+ 00000038  BB 0000000A		    mov ebx,10
+ 0000003D  93			    xchg eax,ebx              ; exchange so you can display ebx value in WriteDec
+ 0000003E  BA 00000027 R	    mov edx, OFFSET ebxStr
+ 00000043  E8 00000000 E	    call WriteString
+ 00000048  BA 00000012 R	    mov edx, OFFSET eaxStr    ; set it back since all the rest are eaxStr
+ 0000004D  E8 00000000 E	    call WriteDec
+ 00000052  93			    xchg eax,ebx              ; swap them back so eax can continue to be accumulator
+ 00000053  E8 00000000 E	    call dumpRegs
 
 
- 00000058  03 C3			add eax,ebx
- 0000005A  E8 00000000 E		call WriteString
- 0000005F  E8 00000000 E		call WriteDec
- 00000064  E8 00000000 E		call dumpRegs
+ 00000058  03 C3		    add eax,ebx
+ 0000005A  E8 00000000 E	    call WriteString
+ 0000005F  E8 00000000 E	    call WriteDec
+ 00000064  E8 00000000 E	    call dumpRegs
 
- 00000069  83 E8 0B			sub eax,11
- 0000006C  E8 00000000 E		call WriteString
- 00000071  E8 00000000 E		call WriteDec
- 00000076  E8 00000000 E		call dumpRegs
+ 00000069  83 E8 0B		    sub eax,11
+ 0000006C  E8 00000000 E	    call WriteString
+ 00000071  E8 00000000 E	    call WriteDec
+ 00000076  E8 00000000 E	    call dumpRegs
 
-					invoke ExitProcess,0
+				    invoke ExitProcess,0
  0000007B  6A 00	   *	    push   +000000000h
  0000007D  E8 00000000 E   *	    call   ExitProcess
  00000082			main endp
 				end main
-Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/06/17 04:27:05
+Microsoft (R) Macro Assembler Version 14.11.25547.0	    11/08/17 05:07:59
 AddTwo.asm						     Symbols 2 - 1
 
 

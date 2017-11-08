@@ -15,18 +15,18 @@ CalcSum_ proc
     push ebp                             ; save the caller's base (stack frame) pointer
     mov ebp, esp                         ; set the new base for this proc to the current top of the stack
 
-	; Load the parameter values
+    ; Load the parameter values
     mov eax,[ebp+8]                      ; eax=a (4-byte int)
     mov ecx,[ebp+12]                     ; eax=b (4-byte int)
     mov edx,[ebp+16]                     ; edx=c (4-byte int)
 
-	; Calculate the sum
-	add eax,ecx
+    ; Calculate the sum
+    add eax,ecx
     add eax,edx
 
    ; Restore the caller's stack frame pointer
-	pop ebp
-	ret
+    pop ebp
+    ret
 CalcSum_ endp
 end
 

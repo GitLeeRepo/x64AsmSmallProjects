@@ -18,43 +18,43 @@ addThis DWORD 6
 
 .code
 main proc
-	; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
-	;       so these registers will be used throughtout for these purposes
+    ; Note: WriteString uses the pointer in edx and WriteDec uses the value in eax
+    ;       so these registers will be used throughtout for these purposes
 
-	mov edx, OFFSET helloWorld
-	call WriteString
-	mov edx, OFFSET eaxStr
+    mov edx, OFFSET helloWorld
+    call WriteString
+    mov edx, OFFSET eaxStr
 
-	mov	eax,5	
-	call WriteString
-	call WriteDec
-	call dumpRegs
+    mov eax,5    
+    call WriteString
+    call WriteDec
+    call dumpRegs
 
-	add	eax,[addThis]	
-	call WriteString
-	call WriteDec
-	call dumpRegs
+    add eax,[addThis]    
+    call WriteString
+    call WriteDec
+    call dumpRegs
 
-	mov ebx,10
-	xchg eax,ebx              ; exchange so you can display ebx value in WriteDec
-	mov edx, OFFSET ebxStr
-	call WriteString
-	mov edx, OFFSET eaxStr    ; set it back since all the rest are eaxStr
-	call WriteDec
-	xchg eax,ebx              ; swap them back so eax can continue to be accumulator
-	call dumpRegs
+    mov ebx,10
+    xchg eax,ebx              ; exchange so you can display ebx value in WriteDec
+    mov edx, OFFSET ebxStr
+    call WriteString
+    mov edx, OFFSET eaxStr    ; set it back since all the rest are eaxStr
+    call WriteDec
+    xchg eax,ebx              ; swap them back so eax can continue to be accumulator
+    call dumpRegs
 
 
-	add eax,ebx
-	call WriteString
-	call WriteDec
-	call dumpRegs
+    add eax,ebx
+    call WriteString
+    call WriteDec
+    call dumpRegs
 
-	sub eax,11
-	call WriteString
-	call WriteDec
-	call dumpRegs
+    sub eax,11
+    call WriteString
+    call WriteDec
+    call dumpRegs
 
-	invoke ExitProcess,0
+    invoke ExitProcess,0
 main endp
 end main
