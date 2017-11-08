@@ -1,4 +1,4 @@
-; MemoryAddress.asm
+; MemoryAddress.asm - Pg 42 of Modern X86 Assembly Language Programming, by Daniel Kusswurm
 ;
 ; Illutrates different memory addressing techniques relative to the stack base pointer
 ; all of which are valid and will produce the same result (all the returned values:
